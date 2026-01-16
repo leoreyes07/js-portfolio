@@ -1,4 +1,5 @@
-const API = process.env.API;
+const API = process.env.API || 'https://randomuser.me/api/';
+
 
 const getData = async (id) => {
   const apiURl = id ? `${API}${id}` : API;
@@ -8,6 +9,7 @@ const getData = async (id) => {
     return data.results[0];
   } catch (error) {
     console.log('Fetch Error', error);
+    console.log('API:', API);
   };
 };
 
